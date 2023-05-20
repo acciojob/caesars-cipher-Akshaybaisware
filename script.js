@@ -1,5 +1,7 @@
 // Your Script here.
 
+// Your Script here.
+
 const lookup = {
   'A': 'N','B': 'O','C': 'P','D': 'Q',
   'E': 'R','F': 'S','G': 'T','H': 'U',
@@ -10,25 +12,22 @@ const lookup = {
   'Y': 'L','Z': 'M', '?': '?', ',': ','
 };
 
-
-
 function rot13(encodedStr){
-   let decodedArr = []; 
-	 for(let i = 0 ; i < inputString.length ; i++) 
-	 {
-        if(lookup[ inputString[i] ] === undefined)
-		{
-            decoderArr.push( inputString[i] ) ;
-        }   
-        else
-		{ 
-            decoderArr.push(lookup[ inputString[i] ]);
-        }
-    }
-    return decoderArr// Your Result goes here
-  // Only change code below this line
+   let decodedStr = ""; // initialize an empty string to hold the decoded result
 
- 
+  for (let i = 0; i < encodedStr.length; i++) {
+    // look up the character in the lookup table
+    let decodedChar = lookup[encodedStr[i]];
+    if (decodedChar !== undefined) {
+      // if the character is in the lookup table, append the decoded value
+      decodedStr += decodedChar;
+    } else {
+      // if the character is not in the lookup table, append it unchanged
+      decodedStr += encodedStr[i];
+    }
+  }
+
+  return decodedStr;
 }
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
